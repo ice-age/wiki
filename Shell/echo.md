@@ -20,9 +20,6 @@ echo -e "\033[1;31;43m你好"
 
 <table>
    <tr>
-      <td></td>
-   </tr>
-   <tr>
       <td>Color</td>
       <td>Foreground</td>
       <td>Background</td>
@@ -66,8 +63,5 @@ echo -e "\033[1;31;43m你好"
       <td>white</td>
       <td>37</td>
       <td>47</td>
-   </tr>
-   <tr>
-      <td></td>
    </tr>
 </table>
