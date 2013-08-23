@@ -18,15 +18,56 @@ echo -e "\033[1;31;43m你好"
 7 反显
 8 消隐
 
-rminal emulators.
-
-
-Color	Foreground	Background
-black	30	40
-red	31	41
-green	32	42
-yellow	33	43
-blue	34	44
-magenta	35	45
-cyan	36	46
-white	37	47
+<table>
+   <tr>
+      <td></td>
+   </tr>
+   <tr>
+      <td>Color</td>
+      <td>Foreground</td>
+      <td>Background</td>
+   </tr>
+   <tr>
+      <td>black</td>
+      <td>30</td>
+      <td>40</td>
+   </tr>
+   <tr>
+      <td>red</td>
+      <td>31</td>
+      <td>41</td>
+   </tr>
+   <tr>
+      <td>green</td>
+      <td>32</td>
+      <td>42</td>
+   </tr>
+   <tr>
+      <td>yellow</td>
+      <td>33</td>
+      <td>43</td>
+   </tr>
+   <tr>
+      <td>blue</td>
+      <td>34</td>
+      <td>44</td>
+   </tr>
+   <tr>
+      <td>magenta</td>
+      <td>35</td>
+      <td>45</td>
+   </tr>
+   <tr>
+      <td>cyan</td>
+      <td>36</td>
+      <td>46</td>
+   </tr>
+   <tr>
+      <td>white</td>
+      <td>37</td>
+      <td>47</td>
+   </tr>
+   <tr>
+      <td></td>
+   </tr>
+</table>
