@@ -1,6 +1,10 @@
 在很多操作系统中都有echo命令，如Unix、类Unix、Ms windows。可以讲字符串输出到终端。
 
 下面只说linux中的echo。
+## echo的参数
+ -n     do not output the trailing newline
+ -e     enable interpretation of backslash escapes
+ -E     disable interpretation of backslash escapes (default)
 
 ## 输出带有颜色、背景色的字符串
 ### Q1 怎样输出带颜色的字符串
