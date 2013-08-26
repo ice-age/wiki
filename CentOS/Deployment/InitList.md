@@ -11,6 +11,7 @@ cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 *监听端口
 
 ##chkconfig
-
+##limits
+##内核
 ##history
 ##yum源
