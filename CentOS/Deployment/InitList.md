@@ -1,6 +1,16 @@
 ##时区
 cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+##ntp
+
 ##selinux
 
-##ssh登陆问题
-~/.ssh/au 权限
+##ssh
+*~/.ssh/au 权限
+*限制root登陆
+*监听端口
+
+##chkconfig
+
+##history
+##yum源
