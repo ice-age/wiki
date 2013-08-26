@@ -2,11 +2,11 @@
 
 下面只说linux中的echo。
 ## echo的参数
- -n     do not output the trailing newline
+* -n     do not output the trailing newline
 
- -e     enable interpretation of backslash escapes
+* -e     enable interpretation of backslash escapes
 
- -E     disable interpretation of backslash escapes (default)
+* -E     disable interpretation of backslash escapes (default)
 
 ## 输出带有颜色、背景色的字符串
 ### Q1 怎样输出带颜色的字符串
