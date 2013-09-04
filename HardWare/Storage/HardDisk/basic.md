@@ -38,7 +38,7 @@ Rotational latency = 60/RPM/2*1000
 * 10k平均寻道时间=3.6/4.2ms
 * 15k平均寻道时间=3.4/3.9ms
 
-
+IOPS = 1000 ms/ (Tseek + Troatation)
 
 ##IOPS、吞吐量测试
 
