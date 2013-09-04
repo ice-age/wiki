@@ -93,6 +93,34 @@ http://romanrm.ru/en/dd-benchmark
 
 ### 2.mkfs
 
+mkfs -t ext4 -m 1 -O dir_index,extent,sparse_super /dev/sdk1
+
+
 ### 3.tune2fs
 
+tune2fs -l /dev/sdk1
+
 ### 4.smartmontools
+
+smartmontools包含smartctl和smartd，它通过使用自我监测、分析及报告技术控制、监控存储系统。可以使用来多数现代硬盘包括(P)ATA, Serial ATA and SCSI等。可以在硬盘完全故障之前，做出预警。
+
+现在的硬盘基本上都支持SMART技术，通过命令可以检测是否支持。
+
+smartctl -i /dev/sdd
+
+启用SMART
+
+smartctl --smart=on --offlineauto=on --saveauto=on /dev/sdd
+
+
+-a 显示所有信息
+-i
+-A
+-H 
+
+手工对硬盘进行测试的方法有以下四种：
+smartctl -t short     后台检测硬盘，消耗时间短
+smartctl -t long       后台检测硬盘，消耗时间长
+smartctl -C -t short  前台检测硬盘，消耗时间短
+smartctl -C -t long   前台检测硬盘，消耗时间长
+smartctl -l selftest /dev/sdd 结果
