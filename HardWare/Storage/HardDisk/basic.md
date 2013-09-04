@@ -19,9 +19,26 @@
 * Latency:
 * 平均无故障时间：
 
-##
+#接口
+
+sata 1  1.5Gb/s
+sata 2  3Gb/s
+sata 3  6Gb/s
+sas 2   6Gb/s
+
+##寻道、延时
 
 Average cost time = command overhead + seek time + Rotational latency + Transmission time.
+
+Rotational latency = 60/RPM/2*1000
+
+一般情况下寻道时间：
+
+* 7.2k平均寻道时间=8.5/9.5ms
+* 10k平均寻道时间=3.6/4.2ms
+* 15k平均寻道时间=3.4/3.9ms
+
+
 
 ##IOPS、吞吐量测试
 
