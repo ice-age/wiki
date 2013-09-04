@@ -48,6 +48,8 @@ Rotational latency = 60/RPM/2*1000
 
 ### 1.fio 
 
+fio -name=test -rw=randrw -bs=4k -size=100M -iodepth=1 -ioengine libaio -directory=/data/8 -fsync=1
+
 ### 2.dd
 
 dd bs=1M count=128 if=/dev/zero of=test oflag=dsync
