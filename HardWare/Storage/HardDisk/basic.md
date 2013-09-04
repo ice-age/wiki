@@ -21,10 +21,10 @@
 
 #接口
 
-sata 1  1.5Gb/s
-sata 2  3Gb/s
-sata 3  6Gb/s
-sas 2   6Gb/s
+* sata 1  1.5Gb/s
+* sata 2  3Gb/s
+* sata 3  6Gb/s
+* sas 2   6Gb/s
 
 ##寻道、延时
 
