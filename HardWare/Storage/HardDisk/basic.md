@@ -42,7 +42,7 @@ IOPS = 1000 ms/ (Tseek + Troatation)
 
 ##IOPS、吞吐量测试
 
-测试工具：iozone fio dd
+测试工具：iozone Iometer fio dd
 
 要测试吞吐量主要是测试顺序读写情况下磁盘的读写性能，文件块要大一些，如64k、128k等。测试IOPS则是要测试随机读写小文件的性能，文件要小一些，如4k。
 
@@ -80,3 +80,14 @@ oflag/iflag有：
 http://romanrm.ru/en/dd-benchmark
 
 ##RAID
+
+
+##相关工具
+
+### 1.fdisk
+
+### 2.mkfs
+
+### 3.tune2fs
+
+### 4.smartmontools
