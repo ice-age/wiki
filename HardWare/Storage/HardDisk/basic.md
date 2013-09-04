@@ -61,6 +61,6 @@ oflag/iflag有：
 * dsync  use synchronized I/O for data
 * sync   likewise, but also for metadata
 
-
+http://romanrm.ru/en/dd-benchmark
 
 ##RAID
