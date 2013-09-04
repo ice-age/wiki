@@ -2,6 +2,9 @@
 
 * 2000年Seagate推出第一款15000RPM硬盘Cheetah X15。
 
+sata硬盘，串行可以热插拔，成本低，在桌面级系统，对性能要求不是很高的可以使用
+scsi 速度略高于sata，对性能稳定性要求高的服务器
+
 ##硬盘参数
 
 * 转速
@@ -77,6 +80,8 @@ oflag/iflag有：
 * /dev/zero:当你读它的时候，它会提供无限的空字符(NULL, ASCII NUL, 0x00)。
 * /dev/null:空设备，是一个特殊的设备文件，它丢弃一切写入其中的数据
 * /dev/random
+* /dev/mem
+
 http://romanrm.ru/en/dd-benchmark
 
 ##RAID
