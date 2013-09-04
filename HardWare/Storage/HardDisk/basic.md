@@ -46,4 +46,21 @@ Rotational latency = 60/RPM/2*1000
 
 要测试吞吐量主要是测试顺序读写情况下磁盘的读写性能，文件块要大一些，如64k、128k等。测试IOPS则是要测试随机读写小文件的性能，文件要小一些，如4k。
 
+### dd
+
+dd bs=1M count=128 if=/dev/zero of=test oflag=dsync
+
+dd bs=1M count=128 if=/dev/zero of=test conv=sync 
+
+conv有：
+* sync   pad every input block with NULs to ibs-size; when used with block or unblock, pad with spaces rather than NULs
+* fdatasync physically write output file data before finishing
+* fsync  likewise, but also write metadata
+
+oflag/iflag有：
+* dsync  use synchronized I/O for data
+* sync   likewise, but also for metadata
+
+
+
 ##RAID
