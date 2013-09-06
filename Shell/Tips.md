@@ -15,3 +15,8 @@ pathname=/usr/bin/free;echo ${pathname%/*}
 
 进入到脚本所在的目录
 cd $(dirname "$0") || exit 1
+
+
+###3.调用syslog
+
+logger 
