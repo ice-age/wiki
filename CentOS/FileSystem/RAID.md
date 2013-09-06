@@ -4,5 +4,6 @@ raid特点
     raid1 能提供冗余,降低了性能
     raid4
     raid5 既能提供冗余 又能提高性能 至少三块硬盘
+   raid6
     raid10 安全性更高,使用率不及raid5高
  
