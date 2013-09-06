@@ -2,10 +2,15 @@
 ###引起文件系统只读的原因:
 * 硬盘问题
 * 硬盘IO太高
+
+如果在挂载时指定errors=remount-ro,当文件系统遇到问题时,就会进入Read-only状态.
+
 ###解决办法
+查看dmesg
+
 umount
 
-fdisk
+fsck:sudo fsck -Af -M(-M不去检测已挂载的文件系统)
 
 mount
 
