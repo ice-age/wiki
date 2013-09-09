@@ -93,8 +93,10 @@ http://unix.stackexchange.com/questions/16307/what-is-a-fragment-size-in-an-ext3
 * -a 自动修复(这个选项比较危险)
 * -f 强制检测
 * -M 不去检测已挂载的文件系统
-
-fdisk -A -a
+* -c 检测硬盘坏道
+* -y 
+* -t 类型.fsck -t ext4相当于fsck.ext4
+* fdisk -A -a
 
 This command tells fdisk to run through /etc/fstab and check each partition entered there (-A), and to automatically fix any errors without confirmation (-a). Given my choice of ext4 and mount options, there's a small chance I've lost some writes in this process. Be careful when choosing automatic repairs (-a) -- make sure that's really what you want!
 ###3.mkfs
