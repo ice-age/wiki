@@ -66,7 +66,7 @@ http://unix.stackexchange.com/questions/16307/what-is-a-fragment-size-in-an-ext3
 
 
 ##四.维护工具e2fsprogs
-e2fsprogs是用以维护ext2，ext3和ext4文件系统的工具程序集,包括:
+###1.e2fsprogs是用以维护ext2，ext3和ext4文件系统的工具程序集,包括:
 * e2fsck:一个fsck程序,用来检查和纠正不一致
 * mke2fs:用来创建ext2，ext3和ext4文件系统
 * resize2fs:扩展或者缩小ext2，ext3和ext4文件系统的大小
@@ -87,3 +87,8 @@ e2fsprogs是用以维护ext2，ext3和ext4文件系统的工具程序集,包括:
 * lsattr:列出文件的属性
 * chattr:修改文件的属性
 
+###2.fsck  
+
+###3.mkfs
+
+###4.fdisk
