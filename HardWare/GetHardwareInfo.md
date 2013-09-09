@@ -1,5 +1,6 @@
 ##1.查看机器所有硬件信息:
 * dmidecode |more
+    dmidecode -t
 * dmesg |more
 
 ##2.查看CPU信息
@@ -178,3 +179,6 @@ rpm –relocate /opt/=/usr/sbin/ -i MegaCli-1.01.24-0.i386.rpm.即把安装目�
 或者以动态可视化文字界面显示
 
     MegaCli -PDRbld -ProgDsply -PhysDrv [1:5] -a0
+
+##监控温度
+* lm-sensor
