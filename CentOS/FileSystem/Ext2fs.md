@@ -15,7 +15,15 @@ Louis-Dominique Dubeau写的关于ext2架构分析的文章,有点老了1998年�
 http://undergraduate.csse.uwa.edu.au/units/CITS1002/fs-ext2/
 
 ##Ext3
- 
+
+ext3是一个日志文件系统(Journaling file system),既当发生变化时,先把相关信息写入到日志区域,再把变化写入到主文件系统的文件系统.当文件系统发生故障(如内核崩溃或者断电)时,日志文件系统更容易保持一致性,可以较快恢复.
+
+Block size 	Maximum file size 	Maximum file system size
+1 KiB 	16 GiB 	2 TiB
+2 KiB 	256 GiB 	8 TiB
+4 KiB 	2 TiB 	16 TiB
+8 KiB 	2 TiB 	32 TiB
+
 ext3不支持block fragmentation,因此一个1B大的文件会占用整个块的空间.UFS文件系统支持每个块分成四个fragments.fragments是计划中的特性,现在还没实现.
 
 http://unix.stackexchange.com/questions/16307/what-is-a-fragment-size-in-an-ext3-filesystem
