@@ -2,6 +2,8 @@
 * dmidecode |more
 * dmesg |more
 
+* 查看服务器型号：dmidecode |grep 'Product Name'
+* 查看系统序列号：sudo dmidecode -s system-serial-number
 
 dmidecode -t 1,13 or dmidecode -t bios
 
@@ -35,6 +37,14 @@ baseboard    2,41    Ethernet
 ##2.查看CPU信息
 * cat /proc/cpuinfo |more
 * dmesg | grep CPU
+* lscpu
+
+* 查看cpu频率：cat /proc/cpuinfo |grep 'cpu MHz'
+* 查看一个物理CPU有几个核：cat /proc/cpuinfo |grep  cores
+* 查看一个物理CPU有几个逻辑CPU：cat /proc/cpuinfo |grep  siblings
+* 查看cpu型号：cat /proc/cpuinfo |grep  name|cut -f2 -d: |uniq -c
+* 查看cpu个数：cat /proc/cpuinfo |grep 'physical id'|uniq -c
+
 
 ###查看CPU的位数
 * getconf LONG_BIT
@@ -47,15 +57,20 @@ baseboard    2,41    Ethernet
 ##4.查看磁盘信息
 * fdisk -l 可以看到系统上的磁盘(包括U盘)的分区以及大小相关信息。
 * cat /proc/partitions
+* hdparm -i /dev/sda
 
 ##5.查看网卡信息
 * ethtool eth0 采用此命令可以查看到网卡相关的技术指标不一定所有网卡都支持此命令）
 * ethtool -i eth1 加上 -i 参数查看网卡驱动   可以尝试其它参数查看网卡相关技术参数
 * cat /etc/sysconfig/network-scripts/ifcfg-eth0 可以看到当前的网卡配置包括IP、网关地址等信息。
 * ifconfig
+* 查看网卡型号 lspci ｜grep Eth ; lspci -vv
+*  modinfo pcnet32 （所有版本的网卡驱动基本上都在 /lib/modules/2.6.18-194.el5/kernel/drivers/net）
 
 ##6.如何查看主板信息？
-lspci 命令来列举所有的 PCI 设备
+* lspci 命令来列举所有的 PCI 设备
+
+* 主板支持最大内存：sudo dmidecode -t 16 |grep Maximum
 
 ##7.如何挂载ISO文件
 mount -o loop *.iso mount_point
@@ -101,6 +116,7 @@ mount -o loop *.iso mount_point
 ##查看raid信息
 ###软件raid
 cat /proc/mdstat 可以看到raid级别，状态等信息。
+
 ###硬件raid
 * 最佳的办法是通过已安装的raid厂商的管理工具来查看.Adaptec公司的硬件卡就可以通过下面的命令进行查看：/usr/dpt/raidutil -L all
 * dmesg |grep -i raid
