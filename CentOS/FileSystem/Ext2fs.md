@@ -89,6 +89,12 @@ http://unix.stackexchange.com/questions/16307/what-is-a-fragment-size-in-an-ext3
 
 ###2.fsck  
 
+* -A /etc/fstab中所有的分区
+* -a 自动修复(这个选项比较危险)
+
+fdisk -A -a
+
+This command tells fdisk to run through /etc/fstab and check each partition entered there (-A), and to automatically fix any errors without confirmation (-a). Given my choice of ext4 and mount options, there's a small chance I've lost some writes in this process. Be careful when choosing automatic repairs (-a) -- make sure that's really what you want!
 ###3.mkfs
 
 ###4.fdisk
