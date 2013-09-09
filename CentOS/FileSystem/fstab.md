@@ -104,5 +104,9 @@ async  所有的I/O将以非同步方式进行
 
 ##/proc/filesystems
 
+##/proc/partitions
+
+##/etc/mtab
+##mknod
 ##e2label
 
