@@ -1,5 +1,27 @@
 /etc/fstab
 
+fsck、mount、umount的等命令都利用该文件。
+
+
+    # /etc/fstab
+    # Created by anaconda on Tue Aug  6 11:49:21 2013
+    #
+    # Accessible filesystems, by reference, are maintained under '/dev/disk'
+    # See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
+    #
+    UUID=ab6092ae-8c1f-4971-925e-4fe2380ef8fe /                       ext4    defaults        1 1
+    UUID=2ca94743-485f-4c55-adbd-786660e6c291 /boot                   ext4    defaults        1 2
+    UUID=b21d8f99-c0b9-4e5b-9a86-d74f3aaba0e0 /data                   ext4    defaults        1 2
+    UUID=cbafb92f-74eb-43ec-a7d1-d75335fa3569 /tmp                    ext4    defaults        1 2
+    UUID=be11020a-0cfa-4148-abb7-7f700fe705e8 /usr                    ext4    defaults        1 2
+    UUID=33a48769-2a9b-4ee5-8768-d5e23ee04326 /var                    ext4    defaults        1 2
+    UUID=5c1000a5-9c2d-41a4-a63f-1f0396bdb52c swap                    swap    defaults        0 0
+    tmpfs                   /dev/shm                tmpfs   defaults        0 0
+    devpts                  /dev/pts                devpts  gid=5,mode=620  0 0
+    sysfs                   /sys                    sysfs   defaults        0 0
+    proc                    /proc                   proc    defaults        0 0
+    /dev/sdb1	/data/1	ext4	noatime,nodiratime	1 2
+    /dev/sdc1	/data/2	ext4	noatime,nodiratime	1 2
 
 auto / noauto
     With the auto option, the device will be mounted automatically at bootup or when the mount -a command is issued. auto is the default option. If you do not want the device to be mounted automatically, use the noauto option in /etc/fstab. With noauto, the device can be only mounted explicitly.
