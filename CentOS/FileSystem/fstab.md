@@ -66,7 +66,8 @@ Use default settings. Default settings are defined per file system at the file s
 Permit the owner of device to mount.
 ####atime / noatime / relatime / strictatime (Linux-specific)
 The Unix stat structure records when files are last accessed (atime), modified (mtime), and changed (ctime). One result is that atime is written every time a file is read, which has been heavily criticized for causing performance degradation and increased wear. However, atime is used by some applications and desired by some users, and thus is configurable as atime (update on access), noatime (do not update), or (in Linux) relatime (update atime if older than mtime). Through Linux 2.6.29, atime was the default; as of 2.6.30 (9 June 2009), relatime is the default.[1] 
-
+####errors={continue|remount-ro|panic}
+Define  the  behaviour  when an error is encountered.  (Either ignore errors and just mark the filesystem erroneous and continue, or remount the filesystem read-only, or panic and halt the system.)  The default is set in the filesystem superblock, and can be changed using tune2fs(8).
 
 ##/proc/filesystems
 
