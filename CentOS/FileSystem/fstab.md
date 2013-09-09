@@ -47,7 +47,7 @@ UUID=3e6be9de-8139-11d1-9106-a43f08d823a6
 参见:mount
 
 ####auto / noauto
-    With the auto option, the device will be mounted automatically at bootup or when the mount -a command is issued. auto is the default option. If you do not want the device to be mounted automatically, use the noauto option in /etc/fstab. With noauto, the device can be only mounted explicitly.
+With the auto option, the device will be mounted automatically at bootup or when the mount -a command is issued. auto is the default option. If you do not want the device to be mounted automatically, use the noauto option in /etc/fstab. With noauto, the device can be only mounted explicitly.
 ####dev / nodev
     Interpret/do not interpret block special devices on the filesystem.
 ####exec / noexec
