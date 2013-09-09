@@ -77,6 +77,7 @@ cat /proc/mdstat 可以看到raid级别，状态等信息。
 * cat /proc/scsi/scsi
 * lspci
 
+转一篇megacli用法的文档,找不到出处了
 ##MegaCli
 
 ###1.命令使用：
@@ -128,39 +129,56 @@ rpm –relocate /opt/=/usr/sbin/ -i MegaCli-1.01.24-0.i386.rpm.即把安装目�
     MegaCli -LDSetProp -Cached|-Direct -L0 -a0
     MegaCli -LDSetProp -EnDskCache|-DisDskCache -L0 -a0
 
-4、创建/删除 阵列
-4.1 创建一个 raid5 阵列，由物理盘 2,3,4 构成，该阵列的热备盘是物理盘 5
-MegaCli -CfgLdAdd -r5 [1:2,1:3,1:4] WB Direct -Hsp[1:5] -a0
-4.2 创建阵列，不指定热备
-MegaCli -CfgLdAdd -r5 [1:2,1:3,1:4] WB Direct -a0
-4.3 删除阵列
-MegaCli -CfgLdDel -L1 -a0
-4.4 在线添加磁盘
-MegaCli -LDRecon -Start -r5 -Add -PhysDrv[1:4] -L1 -a0
+###6.创建/删除 阵列
+####1 创建一个 raid5 阵列，由物理盘 2,3,4 构成，该阵列的热备盘是物理盘 5
+
+    MegaCli -CfgLdAdd -r5 [1:2,1:3,1:4] WB Direct -Hsp[1:5] -a0
+####2 创建阵列，不指定热备
+
+    MegaCli -CfgLdAdd -r5 [1:2,1:3,1:4] WB Direct -a0
+####3 删除阵列
+
+    MegaCli -CfgLdDel -L1 -a0
+####4 在线添加磁盘
+
+    MegaCli -LDRecon -Start -r5 -Add -PhysDrv[1:4] -L1 -a0
+
 意思是，重建逻辑磁盘组1，raid级别是5，添加物理磁盘号：1:4。重建完后，新添加的物理磁盘会自动处于重建(同步)状态，这个 时候 fdisk -l是看不到阵列的空间变大的，只有在系统重启后才能看见。如果该阵列下只有一个分区的话，那么该分区也直接增大，如果有多个分区，不知道该怎么分配新增空间了？有空试试看，呵呵
-5、查看阵列初始化信息
-5.1 阵列创建完后，会有一个初始化同步块的过程，可以看看其进度。
-MegaCli -LDInit -ShowProg -LALL -aALL
+
+###7查看阵列初始化信息
+####1 阵列创建完后，会有一个初始化同步块的过程，可以看看其进度。
+
+    MegaCli -LDInit -ShowProg -LALL -aALL
 或者以动态可视化文字界面显示
-MegaCli -LDInit -ProgDsply -LALL -aALL
-5.2 查看阵列后台初始化进度
-MegaCli -LDBI -ShowProg -LALL -aALL
+
+    MegaCli -LDInit -ProgDsply -LALL -aALL
+####2 查看阵列后台初始化进度
+
+    MegaCli -LDBI -ShowProg -LALL -aALL
 或者以动态可视化文字界面显示
-MegaCli -LDBI -ProgDsply -LALL -aALL
-6、创建全局热备
-指定第 5 块盘作为全局热备
-MegaCli -PDHSP -Set [-EnclAffinity] [-nonRevertible] -PhysDrv[1:5] -a0
-也可以指定为某个阵列的专用热备
-MegaCli -PDHSP -Set [-Dedicated [-Array1]] [-EnclAffinity] [-nonRevertible] -PhysDrv[1:5] -a0
-7、删除全局热备
-MegaCli -PDHSP -Rmv -PhysDrv[1:5] -a0
-8、将某块物理盘下线/上线
-MegaCli -PDOffline -PhysDrv [1:4] -a0
-MegaCli -PDOnline -PhysDrv [1:4] -a0
-9、查看物理磁盘重建进度
-MegaCli -PDRbld -ShowProg -PhysDrv [1:5] -a0
+
+    MegaCli -LDBI -ProgDsply -LALL -aALL
+###8.创建全局热备
+####指定第 5 块盘作为全局热备
+
+    MegaCli -PDHSP -Set [-EnclAffinity] [-nonRevertible] -PhysDrv[1:5] -a0
+####也可以指定为某个阵列的专用热备
+
+    MegaCli -PDHSP -Set [-Dedicated [-Array1]] [-EnclAffinity] [-nonRevertible] -PhysDrv[1:5] -a0
+###9.删除全局热备
+
+    MegaCli -PDHSP -Rmv -PhysDrv[1:5] -a0
+###10.将某块物理盘下线/上线
+
+    MegaCli -PDOffline -PhysDrv [1:4] -a0
+    MegaCli -PDOnline -PhysDrv [1:4] -a0
+###11.查看物理磁盘重建进度
+
+    MegaCli -PDRbld -ShowProg -PhysDrv [1:5] -a0
 或者以动态可视化文字界面显示
-MegaCli -PDRbld -ProgDsply -PhysDrv [1:5] -a0
+
+    MegaCli -PDRbld -ProgDsply -PhysDrv [1:5] -a0
+
 下载地址： http://gcolpart.evolix.net/debian/misc/dell/MegaCli-1.01.24-0.i386.rpm
 =============================================
 Dell 各系列的机器，只要是 PERC 的RAID控制器，都可以用 MegaRC 这个命令行工具来检测
