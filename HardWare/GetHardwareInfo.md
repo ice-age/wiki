@@ -1,7 +1,5 @@
 ##1.查看机器所有硬件信息:
 * dmidecode |more
-
-
 * dmesg |more
 --
 
