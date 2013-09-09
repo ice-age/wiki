@@ -1,6 +1,7 @@
 /etc/fstab:fsck、mount、umount的等命令都利用该文件。
 
 cat /etc/fstab
+
     # /etc/fstab
     # Created by anaconda on Tue Aug  6 11:49:21 2013
     #
