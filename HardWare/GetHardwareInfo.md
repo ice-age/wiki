@@ -45,8 +45,30 @@ baseboard    2,41    Ethernet
     /proc/kcore   从内存映像读取相关信息
     /proc/ide   显示IDE设备信息
     /proc/devices
-/proc/mounts
-/proc/fstab
+    /proc/mounts
+    /proc/fstab
+
+
+####1.最简单的用法:
+    lshw
+
+####2. 以html/xml格式输出
+    lshw -html >info.html
+    lshw -xml >info.xml
+
+####3. 显示设备列表，输出包括设备路径(path)、类别(class)以及简单描述
+    lshw -short
+
+####4. 显示设备列表，输出包括总线信息、SCSI、USB、IDE、PCI地址等。
+    lshw -businfo
+
+####5. 显示指定类别的设备
+    lshw -C class
+    lshw -class class
+
+这里的class可以通过lshw -short来查看。比如
+
+    lshw -C memory
 
 ##2.查看CPU信息
 * cat /proc/cpuinfo |more
