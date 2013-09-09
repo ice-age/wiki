@@ -12,6 +12,8 @@ tar -cvf data.tar $(find /home/oracle/data/ ! -name "*.unl")
 ${pathname%/*}也可以获取文件的路径
 pathname=/usr/bin/free;echo ${pathname%/*}
 
+进入到脚本所在的目录
+cd $(dirname "$0") || exit 1
 ####3.$x
 
     $# 是传给脚本的参数个数
@@ -26,8 +28,7 @@ pathname=/usr/bin/free;echo ${pathname%/*}
     $- 使用Set命令设定的Flag一览
 
 
-进入到脚本所在的目录
-cd $(dirname "$0") || exit 1
+
 
 
 ###3.调用syslog
