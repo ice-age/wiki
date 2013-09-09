@@ -1,9 +1,13 @@
 ##1.查看机器所有硬件信息:
 * dmidecode |more
 
-      dmidecode -t
+
 * dmesg |more
 
+
+    dmidecode -t slot|grep Type|sort|uniq -c
+    ssh 10.10.54.19 "echo -en \"\t\"  $HOSTNAME && echo -en \"\t\"  $(ifconfig|grep 10.10.54|awk '{print $2}'|awk -F : '{print $2}') &&  echo  -en \"\t\"  $(dmidecode -t system |grep "Serial Number"|awk '{print $3}') && echo -en \"\t\" $(dmidecode -t system |grep "Product Name" |awk '{print $3,$4}') && echo -en \"\t\" $(dmidecode -t memory|grep -E "Speed: 1600 MHz"|sort|uniq -c|awk '{print $1}') echo -en \"\t\" $(/opt/MegaRAID/MegaCli/MegaCli64 -PDList -aALL|grep "Raw Size"|sort|uniq -c|awk '{print $4,$5,"*"$1}')"
+    
 ##2.查看CPU信息
 * cat /proc/cpuinfo |more
 * dmesg | grep CPU
