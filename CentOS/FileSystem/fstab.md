@@ -68,6 +68,22 @@ Permit the owner of device to mount.
 The Unix stat structure records when files are last accessed (atime), modified (mtime), and changed (ctime). One result is that atime is written every time a file is read, which has been heavily criticized for causing performance degradation and increased wear. However, atime is used by some applications and desired by some users, and thus is configurable as atime (update on access), noatime (do not update), or (in Linux) relatime (update atime if older than mtime). Through Linux 2.6.29, atime was the default; as of 2.6.30 (9 June 2009), relatime is the default.[1] 
 ####errors={continue|remount-ro|panic}
 Define  the  behaviour  when an error is encountered.  (Either ignore errors and just mark the filesystem erroneous and continue, or remount the filesystem read-only, or panic and halt the system.)  The default is set in the filesystem superblock, and can be changed using tune2fs(8).
+####sync / async  
+sync所有的I/O将以同步方式进行
+async  所有的I/O将以非同步方式进行
+####iocharset＝
+在＝号后面加入你的本地编码，似乎在这个设备（分区）中做文件IO的时候就会自动做编码的格式转换。例如：你的某个分区是编码是utf8，而设备中文件的编码是gb2312，当是复制你设备中的文件到你的这个分区时，它将自动做编码转换。  
+####nls=
+在=号后面加入你的本地编码，你的中文就不会出现乱码。
+####exec /noexec
+####user /nouser
+####suid /nosuid
+
+
+
+
+
+
 
 ##/proc/filesystems
 
