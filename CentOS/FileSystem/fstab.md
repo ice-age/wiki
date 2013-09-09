@@ -1,8 +1,6 @@
-/etc/fstab
+/etc/fstab:fsck、mount、umount的等命令都利用该文件。
 
-fsck、mount、umount的等命令都利用该文件。
-
-
+cat /etc/fstab
     # /etc/fstab
     # Created by anaconda on Tue Aug  6 11:49:21 2013
     #
@@ -22,6 +20,11 @@ fsck、mount、umount的等命令都利用该文件。
     proc                    /proc                   proc    defaults        0 0
     /dev/sdb1	/data/1	ext4	noatime,nodiratime	1 2
     /dev/sdc1	/data/2	ext4	noatime,nodiratime	1 2
+
+* 第一列:要挂载的设备,可以是远程文件系统.可以是设备路径(如/dev/sdb1),也可以是UUID或者volume label.
+* 第二列:挂载到哪个位置,swap特殊
+* 第三列:文件系统类型
+* 第四列:挂载参数
 
 auto / noauto
     With the auto option, the device will be mounted automatically at bootup or when the mount -a command is issued. auto is the default option. If you do not want the device to be mounted automatically, use the noauto option in /etc/fstab. With noauto, the device can be only mounted explicitly.
@@ -43,3 +46,6 @@ owner (Linux-specific)
     Permit the owner of device to mount.
 atime / noatime / relatime / strictatime (Linux-specific)
     The Unix stat structure records when files are last accessed (atime), modified (mtime), and changed (ctime). One result is that atime is written every time a file is read, which has been heavily criticized for causing performance degradation and increased wear. However, atime is used by some applications and desired by some users, and thus is configurable as atime (update on access), noatime (do not update), or (in Linux) relatime (update atime if older than mtime). Through Linux 2.6.29, atime was the default; as of 2.6.30 (9 June 2009), relatime is the default.[1] 
+
+
+##/proc/filesystems
