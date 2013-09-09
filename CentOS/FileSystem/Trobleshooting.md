@@ -1,7 +1,10 @@
 ##1.Read-only file system
 ###引起文件系统只读的原因:
-* 硬盘问题
+* 硬盘问题-smartctl -a
 * 硬盘IO太高
+* 内存问题-memtest 
+* 文件系统损坏-fsck 
+* 内核bug-很难诊断
 
 如果在挂载时指定errors=remount-ro,当文件系统遇到问题时,就会进入Read-only状态.
 
@@ -12,7 +15,7 @@ umount
 
 最好远程备份
 
-fsck:sudo fsck -Af -M(-M不去检测已挂载的文件系统)
+fsck:sudo fsck -t ext4 -Af -M(-M不去检测已挂载的文件系统)
 
 mount
 
