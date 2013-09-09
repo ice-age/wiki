@@ -91,6 +91,8 @@ http://unix.stackexchange.com/questions/16307/what-is-a-fragment-size-in-an-ext3
 
 * -A /etc/fstab中所有的分区
 * -a 自动修复(这个选项比较危险)
+* -f 强制检测
+* -M 不去检测已挂载的文件系统
 
 fdisk -A -a
 
