@@ -3,6 +3,19 @@
 * dmesg |more
 
 -
+dmidecode -t 1,13 or dmidecode -t bios
+bios 0,13
+system 1,12,32
+baseboard 2,41（很多个）
+
+Desc    DMI Type    type
+
+bios    0,13
+
+system    1,12,32
+
+baseboard    2,41    Ethernet
+
 
     dmidecode -t slot|grep Type|sort|uniq -c
     ssh 10.10.54.19 "echo -en \"\t\"  $HOSTNAME && echo -en \"\t\"  $(ifconfig|grep 10.10.54|awk '{print $2}'|awk -F : '{print $2}') &&  echo  -en \"\t\"  $(dmidecode -t system |grep "Serial Number"|awk '{print $3}') && echo -en \"\t\" $(dmidecode -t system |grep "Product Name" |awk '{print $3,$4}') && echo -en \"\t\" $(dmidecode -t memory|grep -E "Speed: 1600 MHz"|sort|uniq -c|awk '{print $1}') echo -en \"\t\" $(/opt/MegaRAID/MegaCli/MegaCli64 -PDList -aALL|grep "Raw Size"|sort|uniq -c|awk '{print $4,$5,"*"$1}')"
