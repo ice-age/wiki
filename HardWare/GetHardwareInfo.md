@@ -4,8 +4,11 @@
 
 -
 dmidecode -t 1,13 or dmidecode -t bios
+
 bios 0,13
+
 system 1,12,32
+
 baseboard 2,41（很多个）
 
 Desc    DMI Type    type
