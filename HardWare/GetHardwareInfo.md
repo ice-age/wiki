@@ -34,6 +34,20 @@ baseboard    2,41    Ethernet
     dmidecode -t slot|grep Type|sort|uniq -c
     ssh 10.10.54.19 "echo -en \"\t\"  $HOSTNAME && echo -en \"\t\"  $(ifconfig|grep 10.10.54|awk '{print $2}'|awk -F : '{print $2}') &&  echo  -en \"\t\"  $(dmidecode -t system |grep "Serial Number"|awk '{print $3}') && echo -en \"\t\" $(dmidecode -t system |grep "Product Name" |awk '{print $3,$4}') && echo -en \"\t\" $(dmidecode -t memory|grep -E "Speed: 1600 MHz"|sort|uniq -c|awk '{print $1}') echo -en \"\t\" $(/opt/MegaRAID/MegaCli/MegaCli64 -PDList -aALL|grep "Raw Size"|sort|uniq -c|awk '{print $4,$5,"*"$1}')"
     
+
+* lshw(Hardware Lister)是另外一个可以查看硬件信息的工具，不仅如此，它还可以用来做一些硬件的benchmark。
+
+这个工具其实就是用/proc里面读取一些文件来显示相关的信息，它用到了如下文件和目录(下的文件)：
+    /proc/cpuinfo  显示CPU信息
+    /proc/bus/pci  显示pci信息
+    /proc/scsi   显示scsi信息
+    /proc/net/dev  显示网络设备信息
+    /proc/kcore   从内存映像读取相关信息
+    /proc/ide   显示IDE设备信息
+    /proc/devices
+/proc/mounts
+/proc/fstab
+
 ##2.查看CPU信息
 * cat /proc/cpuinfo |more
 * dmesg | grep CPU
