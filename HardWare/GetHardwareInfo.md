@@ -1,7 +1,7 @@
 ##1.查看机器所有硬件信息:
 * dmidecode |more
 
-    dmidecode -t
+      dmidecode -t
 * dmesg |more
 
 ##2.查看CPU信息
