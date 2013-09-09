@@ -9,6 +9,7 @@ mount [-参数] [设备名称] [挂载点]
 * mount --bind olddir newdir
 * mount--move olddir newdir
 * mount -o loop disk1.iso /mnt/disk 挂载iso
+
 ###umount用法
 
 * -n     Unmount without writing in /etc/mtab
