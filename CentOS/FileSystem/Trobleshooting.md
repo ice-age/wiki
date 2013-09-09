@@ -10,6 +10,8 @@
 
 umount
 
+最好远程备份
+
 fsck:sudo fsck -Af -M(-M不去检测已挂载的文件系统)
 
 mount
