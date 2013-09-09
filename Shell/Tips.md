@@ -34,3 +34,20 @@ cd $(dirname "$0") || exit 1
 ###3.调用syslog
 
 logger 
+
+###4.用awk命令抽取输出第三列第5个字符
+
+    awk '{print substr($3,5,1)}'  filename
+    awk 'NR==2{print $3|"cut -b4"}' filename
+
+###5.小数除法,13/2保留两位小数
+
+正确答案:
+
+    average=`echo "scale=2;13/2"|bc`;echo $average
+    6.50
+
+错误答案:
+
+    average=`expr 13 / 2`;echo $average
+    6
