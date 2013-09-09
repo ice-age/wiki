@@ -8,6 +8,8 @@ Blocks是组成文件系统的基本单位.
 
 Fragments节省空间,尤其是有很多小文件的时候.但是增加了磁头的移动和寻道时间.
 
+http://en.wikipedia.org/wiki/File_system_fragmentation
+
 Louis-Dominique Dubeau写的关于ext2架构分析的文章,有点老了1998年之前写的.
 
 http://undergraduate.csse.uwa.edu.au/units/CITS1002/fs-ext2/
