@@ -23,19 +23,30 @@ cat /etc/fstab
     /dev/sdb1	/data/1	ext4	noatime,nodiratime	1 2
     /dev/sdc1	/data/2	ext4	noatime,nodiratime	1 2
 
-* 第一列:要挂载的设备,可以是远程文件系统.可以是设备路径(如/dev/sdb1),也可以是UUID或者volume label.
+* 第一列:要挂载的设备,可以是远程文件系统.可以是设备路径(如/dev/sdb1),也可以是UUID或者volume label(针对lvm?).
 * 第二列:挂载到哪个位置,swap特殊
 * 第三列:文件系统类型
 * 第四列:挂载参数
 
 ###一.第一列
-第一列设备路径(如/dev/sdb1),也可以是UUID或者volume label.参见:e2label
+第一列设备路径(如/dev/sdb1),也可以是UUID或者volume label.参见:blkid\e2label
 
 /dev/sda1
 
 LABEL=Boot
 
 UUID=3e6be9de-8139-11d1-9106-a43f08d823a6
+
+####获取uuid
+* ll /dev/disk/by-uuid/
+* blkid /dev/sdj1
+* tune2fs -l /dev/sdj1
+* vol_id -u /dev/sdj1
+
+###获取label
+* e2label device
+
+设置label tune2fs -L
 
 ###二.第二列
 
