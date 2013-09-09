@@ -25,3 +25,14 @@ mount
 还可以remount,但是不推荐,一个原因是没法找出是否是硬件故障,第二个原因是可能没法remount
 
 (mount -o remount rw / )
+
+##2.去掉一块硬盘,但是没有修改/etc/fstab,启动报错
+
+    Give root password for maintenance
+    (or type Control-D to continue):
+
+ctrl+d,输入root密码后
+    
+    mount -o remount,rw /
+
+然后修改/etc/fstab   
