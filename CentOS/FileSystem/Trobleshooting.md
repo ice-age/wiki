@@ -35,4 +35,18 @@ ctrl+d,输入root密码后
     
     mount -o remount,rw /
 
-然后修改/etc/fstab   
+然后修改/etc/fstab
+
+##3.umount时"device is busy"
+umount -l
+
+让访问该设备的程序退出以后再umount
+
+
+##4.mount后中文乱码
+
+是否有中文字体?
+
+挂载时指定编码:mount –o iocharset=gb2312 codepage=936 /dev/hda5 /mnt/hda5
+
+mount –o iocharset=utf8 /dev/hda5 /mnt/hda5
