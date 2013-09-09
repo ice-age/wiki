@@ -30,7 +30,7 @@
 * ifconfig
 
 ##6.如何查看主板信息？
-lspci
+lspci 命令来列举所有的 PCI 设备
 
 ##7.如何挂载ISO文件
 mount -o loop *.iso mount_point
