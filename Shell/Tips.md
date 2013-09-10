@@ -51,3 +51,34 @@ logger
 
     average=`expr 13 / 2`;echo $average
     6
+
+###6.
+    ~- 先前的工作目录
+
+###7.find与xargs
+
+    find . mtime -1 -type f -print0 |xargs -0 tar zcvf archive.tgz
+    find . mtime -1 -type f -exec tar zcvf archive.tgz '{}' \;
+    [root@Dodoma tangpeiliang]# find . -name "*.sh" -print|xargs mv {} backup
+    mv: 目标"./impala-test/impala_2.sh" 不是目录
+    [root@Dodoma tangpeiliang]# find . -name "*.sh" -print|xargs -i mv {} backup
+
+###8./bin/rm: Argument list too long
+
+    [root@NorthBorneo hsperfdata]# rm -f .-1784163725.com.yunmall.observer.Dsr*
+    -bash: /bin/rm: Argument list too long
+
+    find . -name ".-1784163725.com.yunmall.observer.Dsr*" |xargs rm -f
+
+###9.两次变量替换
+
+如何实现两次变量替代
+
+想法： 变量SYUSER=NMCD.变量GNE=SY. 那$${GNE}USER是否能得出NMCD，我想知道方法，怎么做.这样的变量替换有没有可能实现
+
+    SYSUSER=NMCD
+    GNE=SYS
+    re=`eval echo \\$${GNE}USER`
+    echo $re
+
+http://www.chinaunix.net/cgi-bin/bbs/topic.cgi?forum=11&topic=134这个帖子中有讨论
